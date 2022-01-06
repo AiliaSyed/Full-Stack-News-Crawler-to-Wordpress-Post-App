@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>News Extraction App</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/style.css">
+	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+	<script type="text/javascript" src="eel.js"></script>
+	<script type="text/javascript" src="child.js"></script>
+</head>
+<body class="is-boxed has-animations">
+    <div class="body-wrap">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+							<a href="#">
+								<img class="header-logo-image" src="dist/images/logo.png" alt="Logo">
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+						<div class="hero-copy">
+	                        <h1 class="hero-title mt-0">News Extraction App</h1>
+	                        <p class="hero-paragraph">Extract News from any Website and post it on your own Wordpress side with its dedicated Language</p>
+							<h6 class="hero-title mt-0">First, give your Wordpress Credentials, the credentials are there for the API to successfully log into your wordpress site and eventually save the post to it. These are not passed on, but deleted after each session again</h6>
+							<fieldset>
+							  <legend>Please fill in the credentials of your Wordpress Website</legend>
+							  <form action="/action_page.php">
+							  <p class="hero-paragraph">Enter your Wordpress Page Address, it has to look something like: https://en.manqoolat.com/xmlrpc.php</p>
+									<form action="//www.html.am/html-codes/textboxes/submitted.cfm">
+									<input type="text" id="wordpress-add" name="wordpress-add" size="50">
+									<br />
+									<p></p>
+									</form>
+								<p class="hero-paragraph">Please Enter the Username of your Wordpress account</p>
+									<form action="//www.html.am/html-codes/textboxes/submitted.cfm">
+									<input type="text" id="username" name="username" size="20">
+									<br />
+									<p></p>
+									</form>
+								<p class="hero-paragraph">Please Enter the Password of your Wordpress account</p>
+									<form action="//www.html.am/html-codes/textboxes/submitted.cfm">
+									<input type="text" id="password" name="password" size="20">
+									<p></p>
+									</form>
+							</form>
+							</fieldset>
+							<p></p> 
+							<h6 class="hero-title mt-0">Either you enter a link from which you want to extract the News from, or you enter a title with the corresponding content</h6>
+							<fieldset>
+							  <legend>Choose how you want to extract the News</legend>
+							  <form action="/action_page.php">
+							  <select name="news_extraction" id="news_extraction" onchange="showDiv('section_url', 'section_manually', this)">
+								<option value="none"> please choose...</option>
+								<option value="url">per URL</option>
+								<option value="manual">manual Title & Content input</option>
+							  </select>
+							  <br><br>
+							</form>
+							</fieldset>
+							<p></p>
+								<script>
+								function showDiv(divId, divId2, element)
+								{
+									document.getElementById(divId).style.display = element.value == "url" ? 'block' : 'none';
+									document.getElementById(divId2).style.display = element.value == "manual" ? 'block' : 'none';
+									
+								}
+								</script>
+							<div class= "section_url"; id="section_url"; style = "display:none">
+							<p class="hero-paragraph">Enter the URL you want to extract the news from...</p>
+							<form action="//www.html.am/html-codes/textboxes/submitted.cfm">
+                                <input type="url" id="url_add" name="url_add" size="50">
+                                <br />
+								<p></p>
+                                </form>
+							</div>
+								<div class="section_manually"; id ="section_manually"; style="display: none;">
+									<p class="hero-paragraph">Enter Title...</p>
+									<form action="//www.html.am/html-codes/textboxes/submitted.cfm">
+									<input type="text" id="title" name="title" size="50">
+									<br />
+									<p></p>
+									</form>
+									<p class="hero-paragraph">Enter Content...</p>
+									<form action="//www.html.am/html-codes/textboxes/submitted.cfm">
+									<textarea id="content" name="content" rows="4" cols="50">
+									</textarea>
+									<br />
+									<p></p>
+									</form>
+									<p></p>
+								</div>
+								<h6 class="hero-title mt-0">Now you can either upload three images or you can specify up to three image addresses</h6>
+								<fieldset>
+								  <legend>Choose how you want to add Pictures</legend>
+								  <form action="/action_page.php">
+								  <select name="picture_add" id="picture_add" onchange="showDiv2('section_upload', 'section_address','section_nothing', this)">
+									<option value="none"> please choose...</option>
+									<option value="upload">uploading picture</option>
+									<option value="address">adding picture with image address</option>
+									<option value="nothing">no pictures</option>
+								  </select>
+								  <br><br>
+								</form>
+							</fieldset>
+							<p></p>
+							<h6 class="hero-title mt-0"></h6>
+								<script>
+								function showDiv2(divId, divId2, divId3, element)
+								{
+									document.getElementById(divId).style.display = element.value == "upload" ? 'block' : 'none';
+									document.getElementById(divId2).style.display = element.value == "address" ? 'block' : 'none';
+									document.getElementById(divId3).style.display = element.value == "nothing" ? 'block' : 'none';
+									
+								}
+								</script>
+								<div class="section_upload"; id ="section_upload"; style="display: none;">
+								<p>Click on the "Choose File" button to upload the featured Picture:</p>
+								<form action="/action_page.php">
+								  <input type="button" id="heading_pic" name="filename" value="select featured picture" onclick="getfilepath1()">
+								  <div class="mb-3 text-white" id="file-upload-filename1"></div>   
+								</form>
+								<p></p>
+								<p>Click on the "OPTIONAL: Choose File" button to upload the second picture:</p>
+								<form action="/action_page.php">
+								  <input type="button" id="second_pic" name="filename" value="select second picture" onclick="getfilepath2()">
+								  <div class="mb-3 text-white" id="file-upload-filename2"></div> 
+								</form>
+								<p></p>
+								<p>Click on the "OPTIONAL: Choose File" button to upload the third picture:</p>
+								<form action="/action_page.php">
+								  <input type="button" id="third_pic" name="filename" value="select third picture" onclick="getfilepath3()">
+								  <div class="mb-3 text-white" id="file-upload-filename3"></div> 
+								</form>
+								<p></p>
+								</div>
+								<div class="section_address"; id ="section_address"; style="display: none;">
+								<h6>Please check, that the link does not contain something like: "wp-content/uploads", this will be marked as a forbidden link and the picture can not be extracted</h6>
+								<p></p>
+								<p class="hero-paragraph">Enter the Image address you want to use as an heading...</p>
+								<form action="//www.html.am/html-codes/textboxes/submitted.cfm">
+                                <input type="url" id="url_pic1" name="url_pic1" size="50">
+                                <br />
+								<p></p>
+                                </form>
+								<p class="hero-paragraph">OPTIONAL: Enter the Image address of the second picture...</p>
+								<form action="//www.html.am/html-codes/textboxes/submitted.cfm">
+                                <input type="url" id="url_pic2" name="url_pic2" size="50">
+                                <br />
+								<p></p>
+                                </form>
+								<p class="hero-paragraph">OPTIONAL: Enter the Image address of the third picture...</p>
+								<form action="//www.html.am/html-codes/textboxes/submitted.cfm">
+                                <input type="url" id="url_pic3" name="url_pic3" size="50">
+                                <br />
+								<p></p>
+                                </form>
+								</div>
+								
+								<div class = "section_nothing"; id = "section_nothing"; style = "display: none;">
+								<p>No pictures will be added</p>
+								</div>
+								
+								<h6 class="hero-title mt-0">Last, please enter the language in which the message should be translated. Enter the language in the corresponding abbreviation: For example: German - de , English - en, Urdu - ur .....</h6>
+							<fieldset>
+							  <legend>Enter the Language</legend>
+							  <form action="//www.html.am/html-codes/textboxes/submitted.cfm">
+									<input type="text" id="lang" name="lang" size="5">
+									<br />
+									<p></p>
+									</form>
+								<p></p>
+							</form>
+							</fieldset>
+								
+								<h6 class="hero-title mt-0">Now press the submit button and wait until the progress is complete, check on the website if post it posted before closing the website!</h6>
+								<p></p>
+								
+								<div id="not_posted" style="background-color: #FF0000 ; padding: 10px; visibility: show; border: 1px red;">
+								Post has not been posted yet
+								</div>
+								
+								<div id="posted" style="background-color: #cfc ; padding: 10px; visibility: hidden; border: 1px solid green;">
+								Post has been posted
+								</div>
+								
+								<div id="error" style="background-color: #cfc ; padding: 10px; visibility: hidden; border: 1px white;">
+								an error occured, maybe an image address is forbidden?
+								</div>
+								<p></p>
+								
+	                        <div class="hero-cta", ><a class="button button-primary" onclick="ExtractNews()">Submit</a></div>
+                            
+						</div>
+						<div class="hero-figure anime-element">
+							<svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
+								<rect width="528" height="396" style="fill:transparent;" />
+							</svg>
+							<div class="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
+							<div class="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
+							<div class="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
+							<div class="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
+							<div class="hero-figure-box hero-figure-box-05"></div>
+							<div class="hero-figure-box hero-figure-box-06"></div>
+							<div class="hero-figure-box hero-figure-box-07"></div>
+							<div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
+							<div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
+							<div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
+						</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <div class="brand footer-brand">
+						<a href="#">
+							<img class="header-logo-image" src="dist/images/logo.png" alt="Logo">
+						</a>
+                    </div>
+                    <div class="footer-copyright">&copy; 2021 Ailia Syed, all rights reserved</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="dist/js/main.min.js"></script>
+</body>
+</html>
