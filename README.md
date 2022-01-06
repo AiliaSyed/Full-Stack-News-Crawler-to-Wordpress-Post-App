@@ -7,7 +7,7 @@ To start the App, Python is needed and some requirements are needed too.
 
 In the repository you find the Juypter Notebook-file, the python-file and the overall HTML page with its needed resources. The App can be started through Jupyter Notebook or by just starting the Python file.
 
-This Project was a challenge I gave myself, since I read about the high demand on webcrawlers. I am a side-reporter myself (I work for a news magazine) and with this app I could easily get News from another languages and translate them into mine and rewrite them again and post it on my website. Source will still be given, and as the programm created the post, the given URL will be written under the contents.
+This Project is my first big project I've done so far. This is the first Full-Stack App I've ever made. I have read about the high demands of webcrawlers in the market and thought I could challenge myself. I am a side-reporter myself (I work for a news magazine) and with this app I could easily get News from another languages and translate them into mine and rewrite them again and post it on my website. Source will still be given, and as the programm created the post, the given URL will be written under the contents.
 
 For a full documentation, have a look at my Webiste (link will follow)
 
